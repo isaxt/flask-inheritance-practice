@@ -2,7 +2,7 @@
    (--surface, --border-window-outer, --border-field, etc.). */
 
 body {
-  font-family: "Pixelated MS Sans Serif", Arial, sans-serif;
+  font-family: "Pixelated MS Sans Serif", Arial, sans-s erif;
   -webkit-font-smoothing: none;
   font-size: 11px;
   color: var(--text-color);
