@@ -1,0 +1,103 @@
+/* Win98 look. Load this AFTER 98.css so it can use its variables
+   (--surface, --border-window-outer, --border-field, etc.). */
+
+body {
+  font-family: "Pixelated MS Sans Serif", Arial, sans-serif;
+  -webkit-font-smoothing: none;
+  font-size: 11px;
+  color: var(--text-color);
+  background: #ff8cf3; /* classic Win98 desktop teal (swap back to #ff88e5 if you prefer pink) */
+  max-width: 900px;
+  margin: 32px auto;
+  padding: 0 20px;
+  line-height: 1.4;
+}
+
+/* Header / nav as a raised toolbar */
+header, nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  background: var(--surface);
+  box-shadow: var(--border-window-outer), var(--border-window-inner);
+  padding: 6px 8px;
+  margin-bottom: 16px;
+}
+
+a { color: var(--link-blue); }
+nav a, header a { color: var(--text-color); }
+
+/* 98.css sets huge h1-h3 sizes; tone them down for page use */
+h1 { font-size: 1.6rem; line-height: 1.2; margin: 0; }
+h2 { font-size: 1.3rem; }
+h3 { font-size: 1.1rem; }
+
+.dogs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+/* Card = a raised Win98 window (no rounded corners) */
+.card {
+  background: var(--surface);
+  box-shadow: var(--border-window-outer), var(--border-window-inner);
+  padding: 12px;
+  border-radius: 0;
+}
+
+/* Optional: give a card a blue title bar by adding <div class="title-bar"> inside it */
+.card .title-bar { margin: -9px -9px 10px; }
+
+.dog-icon {
+  font-size: 3rem;
+  display: inline-block;
+  background: var(--button-highlight);
+  box-shadow: var(--border-field);
+  padding: 4px 8px;
+  margin-bottom: 8px;
+}
+
+/* Buttons: let 98.css style them; just keep things consistent */
+button {
+  font: inherit;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+/* Win98 uses dotted focus rings, not thick colored ones */
+button:focus-visible,
+a:focus-visible {
+  outline: 1px dotted #000;
+  outline-offset: -4px;
+}
+a:focus-visible { outline-offset: 2px; outline-color: var(--link-blue); }
+
+footer {
+  margin-top: 32px;
+  background: var(--surface);
+  box-shadow: var(--border-status-field);
+  padding: 3px 6px;
+}
+
+/* Dark mode: swap the palette variables so every Win98 border adapts */
+.dark {
+  --text-color: #f0f0f0;
+  --surface: #3a3a3a;
+  --button-face: #4a4a4a;
+  --button-highlight: #6a6a6a;
+  --button-shadow: #1e1e1e;
+  --window-frame: #000;
+  --link-blue: #8ab4ff;
+  background: #002b2b;
+  color: var(--text-color);
+}
+.dark .card { background: var(--surface); }
+.dark .dog-icon { background: #222; }
+.dark button { color: transparent; text-shadow: 0 0 var(--text-color); }
+
+@media (max-width: 600px) {
+  .dogs { grid-template-columns: 1fr; }
+}
